@@ -19,8 +19,8 @@ $(document).ready(function(){
   			return randomNum;
   		}
   			if (guessedNum != 0) {
-  				//document.getElementById('feedback').innerHTML = "Correct!";
-  				alert("You entered: " + guessedNum);
+  				document.getElementById("feedback").innerHTML = "Correct!";
+  				//alert("You entered: " + guessedNum);
   				//$( "#feedback" ).text( "Correct!" );
   			} else {
   				//testMultiply(guessedNum);
