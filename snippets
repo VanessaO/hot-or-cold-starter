@@ -1,0 +1,81 @@
+/*--- Runs whole game ---*/
+  	/*function guessingGame() {
+  		function hotCold(num) {
+  			if(num <= num + 50) {
+  				$( "#feedback" ).text( "Ice Cold" );
+  			}
+  			else if(num <= num + 30) {
+  				$( "#feedback" ).text( "Cold" );
+  			}
+  			else if(num <= num + 20) {
+  				$( "#feedback" ).text( "Warm" );
+  			}
+  			else if(num <= num + 10) {
+  				$( "#feedback" ).text( "Hot" );
+  			}
+  			else if(num <= num + 1) {
+  				$( "#feedback" ).text( "Very Hot" );
+  			}
+  		} */
+  		//function secretNum(x) {
+  			
+  		
+
+  		function getNum() {
+  			var guessedNum = document.getElementById("userGuess").value;
+
+  			if (guessedNum != "") {
+  				//document.getElementById('feedback').innerHTML = "Correct!";
+  				alert("You entered: " + guessedNum.value);
+  				//$( "#feedback" ).text( "Correct!" );
+  			} else {
+  				//testMultiply(guessedNum);
+  				alert("Put in value please");
+  				//return hotCold(x);
+  			} //else if (isNaN(guessedNum)) {
+  				//alert(guessedNum + " is not a number value");
+  			//}
+  		}
+
+  		/*function testMultiply(x) {
+  			var multipliedNum = x * 2;
+  			alert(multipliedNum); */
+  		}
+  		//}
+
+  		
+
+  		//secretNum(guessedNum);
+  	//}
+
+
+
+1. This creates a alert from the number typed into the input box #userGuess
+	
+	$("#guessButton").click(function getNum() {
+  		var guessedNum = document.getElementById("userGuess");
+
+  			if (guessedNum.value != "0") {
+  				alert("You entered: " + guessedNum.value);	
+  			} else {
+  				alert("Put in value please");
+  			} 
+  	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
