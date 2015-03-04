@@ -14,18 +14,15 @@ $(document).ready(function(){
 
   	$("#guessButton").click(function compareNum() {
   		var guessedNum = parseInt(document.getElementById("userGuess").value);
-  		var secretNum = function() {
-  			var  randomNum = Math.floor(Math.random() * 101);
-  			return randomNum;
-  		}
-  			if (guessedNum != 0) {
+  		var  randomNum = Math.floor(Math.random() * 101);
+  			if (guessedNum == randomNum) {
   				document.getElementById("feedback").innerHTML = "Correct!";
   				//alert("You entered: " + guessedNum);
   				//$( "#feedback" ).text( "Correct!" );
   			} else {
   				//testMultiply(guessedNum);
-  				alert("Put in bigger value please");
-  				alert(secretNum);
+  				//alert("Put in bigger value please");
+  				alert("The secret number is: " + randomNum);
   				//return hotCold(x);
   			} //else if (isNaN(guessedNum)) {
   				//alert(guessedNum + " is not a number value");
