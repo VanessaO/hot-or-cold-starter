@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 	
 	/*--- Display information modal box ---*/
@@ -13,16 +12,20 @@ $(document).ready(function(){
   	});
 
 
-  	$("#guessButton").click(function getNum() {
-  		var guessedNum = document.getElementById("userGuess");
-
-  			if (guessedNum.value != "0") {
-  				document.getElementById('feedback').innerHTML = "Correct!";
-  				//alert("You entered: " + guessedNum.value);
+  	$("#guessButton").click(function compareNum() {
+  		var guessedNum = parseInt(document.getElementById("userGuess").value);
+  		var secretNum = function() {
+  			var  randomNum = Math.floor(Math.random() * 101);
+  			return randomNum;
+  		}
+  			if (guessedNum != 0) {
+  				//document.getElementById('feedback').innerHTML = "Correct!";
+  				alert("You entered: " + guessedNum);
   				//$( "#feedback" ).text( "Correct!" );
   			} else {
   				//testMultiply(guessedNum);
   				alert("Put in bigger value please");
+  				alert(secretNum);
   				//return hotCold(x);
   			} //else if (isNaN(guessedNum)) {
   				//alert(guessedNum + " is not a number value");
@@ -30,7 +33,6 @@ $(document).ready(function(){
 });
 
 /* 
-
 1. Create a function that starts the whole game ((Put all the code in a functiom called guessingGame))
 2. Create function hotCold with the argument num that puts Warmer or Colder in #feedback
 	2a. If num <=num + 50 , then append "Ice Cold"
