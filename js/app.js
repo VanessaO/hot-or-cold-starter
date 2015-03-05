@@ -11,22 +11,45 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+  	/*--- Resets game with new number to guess ---*/
+	$(".new").click(function newGame() {
+		secretNum();
+	});
 
-  	$("#guessButton").click(function compareNum() {
+	/*--- Generates new number ---*/
+	function secretNum() {
+		var  randomNum = Math.floor(Math.random() * 101);
+		alert(randomNum);
+	}
+
+	/*function compareNum() {
   		var guessedNum = parseInt(document.getElementById("userGuess").value);
-  		var  randomNum = Math.floor(Math.random() * 101);
-  			if (guessedNum == randomNum) {
+  			if (guessedNum == secretNum()) {
   				document.getElementById("feedback").innerHTML = "Correct!";
-  				//alert("You entered: " + guessedNum);
-  				//$( "#feedback" ).text( "Correct!" );
-  			} else {
+  			} 
+  			else if(guessedNum <= secretNum() + 1) {
+  				document.getElementById("feedback").innerHTML = "Very Hot!";
+  			}
+  			else if(guessedNum <= secretNum() + 10) {
+  				document.getElementById("feedback").innerHTML = "Hot!";
+  			}
+  			else if(guessedNum <= secretNum() + 20) {
+  				document.getElementById("feedback").innerHTML = "Warm!";
+  			}
+  			else if(guessedNum <= secretNum() + 30) {
+  				document.getElementById("feedback").innerHTML = "Cold!";
+  			}
+  			else if(guessedNum <= secretNum() + 50) {
+  				document.getElementById("feedback").innerHTML = "Ice Cold!";
+  			}
+  			else {
   				//testMultiply(guessedNum);
   				//alert("Put in bigger value please");
-  				alert("The secret number is: " + randomNum);
+  				alert("Please enter a numeric value.");
   				//return hotCold(x);
-  			} //else if (isNaN(guessedNum)) {
+  			}//else if (isNaN(guessedNum)) {
   				//alert(guessedNum + " is not a number value");
-  	});
+  	}*/
 });
 
 /* 
