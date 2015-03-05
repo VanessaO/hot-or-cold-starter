@@ -11,45 +11,53 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-  	/*--- Resets game with new number to guess ---*/
-	$(".new").click(function newGame() {
-		secretNum();
-	});
 
-	/*--- Generates new number ---*/
+	/*--- Generates secret number ---*/
 	function secretNum() {
-		var  randomNum = Math.floor(Math.random() * 101);
-		alert(randomNum);
+		var randomNum = Math.floor(Math.random() * 101);
+		return randomNum;
 	}
 
-	/*function compareNum() {
-  		var guessedNum = parseInt(document.getElementById("userGuess").value);
-  			if (guessedNum == secretNum()) {
-  				document.getElementById("feedback").innerHTML = "Correct!";
-  			} 
-  			else if(guessedNum <= secretNum() + 1) {
-  				document.getElementById("feedback").innerHTML = "Very Hot!";
-  			}
-  			else if(guessedNum <= secretNum() + 10) {
-  				document.getElementById("feedback").innerHTML = "Hot!";
-  			}
-  			else if(guessedNum <= secretNum() + 20) {
-  				document.getElementById("feedback").innerHTML = "Warm!";
-  			}
-  			else if(guessedNum <= secretNum() + 30) {
-  				document.getElementById("feedback").innerHTML = "Cold!";
-  			}
-  			else if(guessedNum <= secretNum() + 50) {
-  				document.getElementById("feedback").innerHTML = "Ice Cold!";
-  			}
-  			else {
-  				//testMultiply(guessedNum);
-  				//alert("Put in bigger value please");
-  				alert("Please enter a numeric value.");
-  				//return hotCold(x);
-  			}//else if (isNaN(guessedNum)) {
-  				//alert(guessedNum + " is not a number value");
-  	}*/
+  	/*--- Resets game with secret number for user to guess---*/
+	$(".new").click(function newGame() {
+		secretNum(); //CAN THIS BE TURNED INTO A VARIABLE?
+	});
+
+	/*--- A function that compares a value the secret number ---*/
+	function compareNum(input) {
+		if (input == num) {
+			//document.getElementById("feedback").innerHTML = "Correct!";
+			alert("Correct");
+		} 
+		else if(input <= num + 1) {
+			//document.getElementById("feedback").innerHTML = "Very Hot!";
+			alert("Very Hot");
+		}
+		else if(input <= num+ 10) {
+			//document.getElementById("feedback").innerHTML = "Hot!";
+			alert("Hot");
+		}
+		else if(input <= num + 20) {
+			//document.getElementById("feedback").innerHTML = "Warm!";
+			alert("Wram");
+		}
+		else if(input <= num + 30) {
+			//document.getElementById("feedback").innerHTML = "Cold!";
+			alert("Cold");
+		}
+		else if(input <= num + 50) {
+			//document.getElementById("feedback").innerHTML = "Ice Cold!";
+			alert("Ice Cold");
+		}
+		else {
+			alert("Please enter a numeric value.");
+  		}
+  	}
+
+  	function makeGuess() {
+  		var guessedNum = parseInt(document.getElementById("userGuess").value, 10);
+  		compareNum(guessedNum);
+  	}
 });
 
 /* 
