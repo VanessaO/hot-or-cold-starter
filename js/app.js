@@ -12,7 +12,6 @@ $(document).ready(function(){
   	});
 
 
-	/*--- Generates secret number ---*/
 	function secretNum() {
 		var randomNum = Math.floor(Math.random() * 101);
 		return randomNum;
@@ -20,10 +19,15 @@ $(document).ready(function(){
 
   	/*--- Resets game with secret number for user to guess---*/
 	$(".new").click(function newGame() {
+		/*--- Generates secret number ---*/
+		function secretNum() {
+			var randomNum = Math.floor(Math.random() * 101);
+			return randomNum;
+		}
 		secretNum(); //CAN THIS BE TURNED INTO A VARIABLE?
 	});
 
-	/*--- A function that compares a value the secret number ---*/
+	/*--- A function that compares a value to secret number ---*/
 	function compareNum(input) {
 		if (input == num) {
 			//document.getElementById("feedback").innerHTML = "Correct!";
@@ -54,10 +58,10 @@ $(document).ready(function(){
   		}
   	}
 
-  	function makeGuess() {
+  	$(#guessButton).click(function makeGuess() {
   		var guessedNum = parseInt(document.getElementById("userGuess").value, 10);
   		compareNum(guessedNum);
-  	}
+  	});
 });
 
 /* 
