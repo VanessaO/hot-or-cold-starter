@@ -11,12 +11,6 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-
-	function secretNum() {
-		var randomNum = Math.floor(Math.random() * 101);
-		return randomNum;
-	}
-
   	/*--- Resets game with secret number for user to guess---*/
 	$(".new").click(function newGame() {
 		/*--- Generates secret number ---*/
