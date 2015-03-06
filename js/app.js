@@ -11,15 +11,8 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-<<<<<<< HEAD
   	/*--- Generates secret number ---*/
   	function secretNum() {
-=======
-  	/*--- Resets game with secret number for user to guess---*/
-	$(".new").click(function newGame() {
-		/*--- Generates secret number ---*/
-		function secretNum() {
->>>>>>> origin/master
 			var randomNum = Math.floor(Math.random() * 101);
 			return randomNum;
 		}
