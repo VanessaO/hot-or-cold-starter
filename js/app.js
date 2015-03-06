@@ -11,60 +11,69 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-
-	function secretNum() {
-		var randomNum = Math.floor(Math.random() * 101);
-		return randomNum;
-	}
-
+<<<<<<< HEAD
+  	/*--- Generates secret number ---*/
+  	function secretNum() {
+=======
   	/*--- Resets game with secret number for user to guess---*/
 	$(".new").click(function newGame() {
 		/*--- Generates secret number ---*/
 		function secretNum() {
+>>>>>>> origin/master
 			var randomNum = Math.floor(Math.random() * 101);
 			return randomNum;
 		}
-		secretNum(); //CAN THIS BE TURNED INTO A VARIABLE?
+
+  	/*--- Resets game with secret number for user to guess---*/
+	$(".new").click(function newGame() {
+		var secretNum = secretNum();
 	});
 
 	/*--- A function that compares a value to secret number ---*/
 	function compareNum(input) {
-		if (input == num) {
+
+		alert(input + " is the input value." + secretNum + " is the secret number.");
+		/*if (input == secretNum) {
 			//document.getElementById("feedback").innerHTML = "Correct!";
 			alert("Correct");
 		} 
-		else if(input <= num + 1) {
+		else if(input <= secretNum + 1) {
 			//document.getElementById("feedback").innerHTML = "Very Hot!";
 			alert("Very Hot");
 		}
-		else if(input <= num+ 10) {
+		else if(input <= secretNum+ 10) {
 			//document.getElementById("feedback").innerHTML = "Hot!";
 			alert("Hot");
 		}
-		else if(input <= num + 20) {
+		else if(input <= secretNum + 20) {
 			//document.getElementById("feedback").innerHTML = "Warm!";
 			alert("Wram");
 		}
-		else if(input <= num + 30) {
+		else if(input <= secretNum + 30) {
 			//document.getElementById("feedback").innerHTML = "Cold!";
 			alert("Cold");
 		}
-		else if(input <= num + 50) {
+		else if(input <= secretNum + 50) {
 			//document.getElementById("feedback").innerHTML = "Ice Cold!";
 			alert("Ice Cold");
 		}
 		else {
 			alert("Please enter a numeric value.");
-  		}
+  		}*/
   	}
 
-  	$(#guessButton).click(function makeGuess() {
+  	$("#guessButton").click(function makeGuess() {
   		var guessedNum = parseInt(document.getElementById("userGuess").value, 10);
   		compareNum(guessedNum);
   	});
 });
 
 /* 
+
+
+Everytime I click .new, I want it to generate a secret number using my SecretNum function. 
+Then I want to take the return value and turn it into a variable so I can use it later.
+
 1. Create a function that starts the whole game ((Put all the code in a functiom called guessingGame))
 2. Create function hotCold with the argument num that puts Warmer or Colder in #feedback
 	2a. If num <=num + 50 , then append "Ice Cold"
