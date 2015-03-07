@@ -24,50 +24,56 @@ $(document).ready(function(){
 	});
 
 	/*--- A function that compares a value to secret number ---*/
-	function compareNum(input) {
+	function compareNum(input, numDifference) {
 
-		alert(input + " is the input value. " + secretNum + " is the secret number.");
-		if (input == secretNum) {
-			//document.getElementById("feedback").innerHTML = "Correct!";
-			alert("Correct");
+		alert(input + " = input value. " + secretNum + " = secret number. " + +numDifference + " = difference.");
+
+		if (numDifference == 0) {
+			document.getElementById("feedback").innerHTML = "Correct!";
 		} 
-		else if(input >= secretNum + 1 && input <= secretNum + 9) {
-			//document.getElementById("feedback").innerHTML = "Very Hot!";
-			alert("Very Hot");
-		}
-		else if(input >= secretNum + 10 && input <= secretNum + 19) {
-			//document.getElementById("feedback").innerHTML = "Hot!";
-			alert("Hot");
-		}
-		else if(input >= secretNum + 20 && input <= secretNum + 29) {
-			//document.getElementById("feedback").innerHTML = "Warm!";
-			alert("Wram");
-		}
-		else if(input >= secretNum + 30 && input <= secretNum + 40) {
-			//document.getElementById("feedback").innerHTML = "Cold!";
-			alert("Cold");
-		}
-		else if(input >= secretNum +  41) {
-			//document.getElementById("feedback").innerHTML = "Ice Cold!";
-			alert("Ice Cold");
+		else if (numDifference <= 5) {
+			document.getElementById("feedback").innerHTML = "Very Hot!";
+		} 
+		else if (numDifference <= 10){
+			document.getElementById("feedback").innerHTML = "Hot!";
+
+		} 
+		else if (numDifference >=10 && numDifference <= 20) {
+			document.getElementById("feedback").innerHTML = "Warm!";
+
+		} 
+		else if (numDifference >=20 && numDifference <= 30) {
+			document.getElementById("feedback").innerHTML = "Cold!";
+
+		} 
+		else if (numDifference >=30 && numDifference <= 40) {
+			document.getElementById("feedback").innerHTML = "Very Cold!";
+
+		} 
+		else {
+			document.getElementById("feedback").innerHTML = "Ice Cold!";
+
 		}
   	}
   		
   	var clicks = 0;
 
   	$("#guessButton").click(function makeGuess() {
-  		var guessedNum = parseInt(document.getElementById("userGuess").value);  		
-  		compareNum(guessedNum);
+  		var guessedNum = parseInt(document.getElementById("userGuess").value); 
+  		var numDifference = secretNum - guessedNum;
+  		compareNum(guessedNum, numDifference);
   		if (guessedNum !== 0) {
 	  		clicks += 1;
 	        document.getElementById("count").innerHTML = clicks;
     	}
-    	else if (guessedNum == 0) {
+    	$("<li>" + guessedNum + "</li>").appendTo('#guessList');
+    	/*else if (guessedNum == 0) {
     		alert("Enter number greater than zero, please!");
     	}
     	else if (isNaN(guessedNum)) {
     		alert("Enter a numeric value, please!");
-    	}
+    	}*/
+
   		return false;
   	});
 });
