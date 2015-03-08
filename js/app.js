@@ -19,25 +19,6 @@ $(document).ready(function(){
 
 	var secretNum = secretNumber();
 
-  	/*--- Resets game with secret number for user to guess---*/
-	$(".new").click(function(event) {
-		newGame();
-	});
-
-		//Resets feilds
-		function newGame() {
-			clicks = 0;
-			$("ul#guessList li").remove();
-			document.getElementById("feedback").innerHTML = "Make A Guess!";
-			secretNum = secretNumber();
-			clearFeild();	
-		}
-
-		//Sets input to nothing
-		function clearFeild() {
-			document.getElementById("userGuess").value = "";
-		}
-
 	/*--- Compares difference between secretNum and input value ---*/
 	function compareNum(input, numDifference) {
 
@@ -103,4 +84,23 @@ $(document).ready(function(){
     	//Prevents reseting
   		return false;
   	});
+
+  	/*--- Resets game with secret number for user to guess---*/
+	$(".new").click(function(event) {
+		newGame();
+	});
+
+		//Resets feilds
+		function newGame() {
+			document.getElementById("count").innerHTML = 0;
+			$("ul#guessList li").remove();
+			document.getElementById("feedback").innerHTML = "Make A Guess!";
+			secretNum = secretNumber();
+			clearFeild();	
+		}
+
+		//Sets input to nothing
+		function clearFeild() {
+			document.getElementById("userGuess").value = "";
+		}
 });
