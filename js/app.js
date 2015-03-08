@@ -41,7 +41,7 @@ $(document).ready(function(){
 	/*--- Compares difference between secretNum and input value ---*/
 	function compareNum(input, numDifference) {
 
-		alert(input + " = input value. " + secretNum + " = secret number. " + +numDifference + " = difference.");
+		//alert(input + " = input value. " + secretNum + " = secret number. " + +numDifference + " = difference.");
 
 		if (numDifference == 0) {
 			document.getElementById("feedback").innerHTML = "Correct!";
