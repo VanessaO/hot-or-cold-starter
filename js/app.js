@@ -24,14 +24,21 @@ $(document).ready(function(){
 		newGame();
 	});
 
-	function newGame() {
-		clicks = 0;
-		$("ul#guessList li").remove();
-		document.getElementById("feedback").innerHTML = "Make A Guess!";
-		secretNum = secretNumber();
-		
-	}
-	/*--- A function that compares difference between secretNum and input value ---*/
+		//Resets feilds
+		function newGame() {
+			clicks = 0;
+			$("ul#guessList li").remove();
+			document.getElementById("feedback").innerHTML = "Make A Guess!";
+			secretNum = secretNumber();
+			clearFeild();	
+		}
+
+		//Sets input to nothing
+		function clearFeild() {
+			document.getElementById("userGuess").value = "";
+		}
+
+	/*--- Compares difference between secretNum and input value ---*/
 	function compareNum(input, numDifference) {
 
 		alert(input + " = input value. " + secretNum + " = secret number. " + +numDifference + " = difference.");
@@ -60,25 +67,40 @@ $(document).ready(function(){
 		} 
 		else {
 			document.getElementById("feedback").innerHTML = "Ice Cold!";
-
 		}
   	}
 
+  	/*--- Processes guessed value and secret number when Guess button clicked---*/
   	var clicks = 0;
 
   	$("#guessButton").click(function makeGuess() {
-  		var guessedNum = parseInt(document.getElementById("userGuess").value); 
+  		var guessedNum = parseInt(document.getElementById("userGuess").value);
+  		var guessedVal = document.getElementById("userGuess").value;
   		var numDifference = secretNum - guessedNum;
   		
   		compareNum(guessedNum, numDifference);
   		
-  		if (guessedNum !== 0) {
+  		if (isNaN(guessedVal)) {
+    		alert("Enter a numeric value, please!");
+    	}
+    	else if (guessedNum <= 0) {
+    		alert("Enter a number bigger than zero, please!");
+    	}
+    	else if (guessedNum > 100) {
+    		alert("Enter a number between 1 and 100, please!");
+    	}
+    	else if (guessedNum !== 0) {
 	  		clicks += 1;
 	        document.getElementById("count").innerHTML = clicks;
-    	}
-    	
-    	$("<li>" + guessedNum + "</li>").appendTo('#guessList');
 
+	        //Append list of guesses to guessList
+    		$("<li>" + guessedNum + "</li>").appendTo('#guessList');
+    	}
+    	else {
+    		alert("Enter a numeric value, please!");
+    	}
+
+    	//Prevents reseting
   		return false;
   	});
 });
