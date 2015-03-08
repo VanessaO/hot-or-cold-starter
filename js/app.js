@@ -12,10 +12,12 @@ $(document).ready(function(){
   	});
 
   	/*--- Generates secret number ---*/
-  	var secretNum = (function() {
+  	function secretNumber() {
 			var randomNum = Math.floor(Math.random() * 101);
 			return randomNum;
-	})(); // AN IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) TO GENERATE SECRET NUMBER ONCE
+	};
+
+	var secretNum = secretNumber();
 
   	/*--- Resets game with secret number for user to guess---*/
 	$(".new").click(function(event) {
@@ -26,8 +28,8 @@ $(document).ready(function(){
 		clicks = 0;
 		$("ul#guessList li").remove();
 		document.getElementById("feedback").innerHTML = "Make A Guess!";
-		//HOW DO I "REFRESH" THE secretNum FUNCTION ON LINE 15?
-		//secretNum();
+		secretNum = secretNumber();
+		
 	}
 	/*--- A function that compares difference between secretNum and input value ---*/
 	function compareNum(input, numDifference) {
