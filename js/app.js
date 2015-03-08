@@ -18,12 +18,18 @@ $(document).ready(function(){
 	})(); // AN IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) TO GENERATE SECRET NUMBER ONCE
 
   	/*--- Resets game with secret number for user to guess---*/
-	$(".new").click(function newGame() {
-		alert(secretNum); // ALERTS A CONSISTANT SECRET NUMBER
-		//return(secretNum); // CAN THIS EVER BE A GLOBAL VARIABLE DUE TO SCOPE?
+	$(".new").click(function(event) {
+		newGame();
 	});
 
-	/*--- A function that compares a value to secret number ---*/
+	function newGame() {
+		clicks = 0;
+		$("ul#guessList li").remove();
+		document.getElementById("feedback").innerHTML = "Make A Guess!";
+		//HOW DO I "REFRESH" THE secretNum FUNCTION ON LINE 15?
+		//secretNum();
+	}
+	/*--- A function that compares difference between secretNum and input value ---*/
 	function compareNum(input, numDifference) {
 
 		alert(input + " = input value. " + secretNum + " = secret number. " + +numDifference + " = difference.");
@@ -39,7 +45,7 @@ $(document).ready(function(){
 
 		} 
 		else if (numDifference >=10 && numDifference <= 20) {
-			document.getElementById("feedback").innerHTML = "Warm!";
+			document.getElementById("feedback").innerHTML = "Warm!";               
 
 		} 
 		else if (numDifference >=20 && numDifference <= 30) {
@@ -55,24 +61,21 @@ $(document).ready(function(){
 
 		}
   	}
-  		
+
   	var clicks = 0;
 
   	$("#guessButton").click(function makeGuess() {
   		var guessedNum = parseInt(document.getElementById("userGuess").value); 
   		var numDifference = secretNum - guessedNum;
+  		
   		compareNum(guessedNum, numDifference);
+  		
   		if (guessedNum !== 0) {
 	  		clicks += 1;
 	        document.getElementById("count").innerHTML = clicks;
     	}
+    	
     	$("<li>" + guessedNum + "</li>").appendTo('#guessList');
-    	/*else if (guessedNum == 0) {
-    		alert("Enter number greater than zero, please!");
-    	}
-    	else if (isNaN(guessedNum)) {
-    		alert("Enter a numeric value, please!");
-    	}*/
 
   		return false;
   	});
